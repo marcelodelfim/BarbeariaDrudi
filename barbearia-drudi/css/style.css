@@ -296,7 +296,7 @@ header .social-icons a:hover svg {
 }
 
 .servico-icone {
-    height: 50px;
+    height: 100px;
     width: auto;
     margin-bottom: 20px;
 }
@@ -459,10 +459,10 @@ footer p {
     position: fixed;
     width: 60px;
     height: 60px;
-    bottom: 40px;
+    bottom: 140px;
     right: 40px;
-    background-color: #25D366;
-    border-radius: 50px;
+    background-color: #25d36500;
+    border-radius: 10px;
     box-shadow: 2px 2px 8px rgba(0,0,0,0.4);
     z-index: 1500;
     transition: transform 0.3s ease;
@@ -476,7 +476,7 @@ footer p {
 }
 
 .whatsapp-flutuante img {
-    width: 35px;
+    width: 100px;
     height: auto;
 }
 
