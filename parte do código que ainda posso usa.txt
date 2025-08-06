@@ -1,0 +1,74 @@
+parte do código que ainda posso usar 
+
+<body>
+    <header>
+        <a href="#" class="logo">Barbearia Drudi</a>
+        <nav>
+            <a href="#servicos">Serviços</a>
+            <a href="#galeria">Galeria</a>
+            <a href="#sobre">Sobre</a>
+            <a href="#contato">Contato</a>
+        </nav>
+    </header>
+
+    <main>
+        <section id="servicos">
+            <h2>Nossos Serviços</h2>
+            <div class="servicos-container">
+                <div class="servico-item">
+                    <h3>Corte Masculino</h3>
+                    <p>A união da técnica clássica e moderna para um corte personalizado e atemporal. Acabamento preciso na navalha e a finalização ideal para o seu estilo.</p>
+                </div>
+                <div class="servico-item">
+                    <h3>Barba</h3>
+                    <p>Uma barba esculpida para o seu rosto. Criamos um design personalizado com técnica apurada que define seu estilo, valoriza seus traços e garante linhas perfeitas.</p>
+                </div>
+                <div class="servico-item">
+                    <h3>Combo (Cabelo + Barba)</h3>
+                    <p>Uma experiência completa de cuidado. Corte e barba desenhados em harmonia para um resultado sofisticado que renova sua confiança e seu estilo.</p>
+                </div>
+                <div class="servico-item">
+                    <h3>Sobrancelha</h3>
+                    <p>Alinhamento preciso para um olhar marcante e natural. Removemos os excessos, definimos o formato e garantimos um visual limpo e harmônico.</p>
+                </div>
+                <div class="servico-item">
+                    <h3>Depilação de nariz</h3>
+                    <p>O detalhe final para uma aparência refinada. Um toque de cuidado que garante um visual limpo, promovendo uma duradoura sensação de asseio e bem-estar.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="galeria">
+            <h2>Galeria de Imagens e Vídeo </h2>
+            <div class="galeria-container">
+                <img src="images/foto1.jpg" alt="Corte de cabelo estiloso">
+                <img src="images/foto2.jpg" alt="Barba bem feita">
+                <img src="images/foto3.jpg" alt="Ambiente da barbearia">
+                <img src="images/foto4.jpg" alt="Cliente satisfeito">
+            </div>
+
+            <h3>Vídeo de Apresentação</h3>
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/SEU_VIDEO_ID" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        
+        <section id="sobre">
+            <h2>Nossa História</h2>
+            <p>"Tudo começa com um sonho. Para mim, [Nome do Fundador], esse sonho sempre teve o som de uma tesoura e o aroma de espuma de barbear. Após [Número] anos dedicados à arte da barbearia, aprendendo, aprimorando técnicas e, acima de tudo, ouvindo as histórias de centenas de clientes, decidi que era hora de construir meu próprio legado.
+                Assim, em [Ano de Fundação], nasceu a [Nome da Barbearia]. Um espaço em [Nome da Cidade] projetado para ser exatamente o lugar que eu, como cliente, sempre quis frequentar: acolhedor, com um serviço impecável e um ambiente onde todos se sentem à vontade.
+                Cada cadeira nesta barbearia representa uma etapa dessa jornada, e cada cliente que confia em nosso trabalho se torna parte fundamental desta história. Nossa missão vai além de entregar um corte ou uma barba perfeita; é sobre elevar a autoestima e construir relações de confiança.                
+                Obrigado por fazer parte deste sonho que se realiza a cada dia."
+            </p>
+            </section>
+
+        <section id="contato">
+            <h2>Contato e Localização</h2>
+            </section>
+    </main>
+
+    <footer>
+        <p>Barbearia Drudi &copy; 2025 - Todos os direitos reservados.</p>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>

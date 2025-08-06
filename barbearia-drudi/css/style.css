@@ -1,0 +1,624 @@
+/* --- ESTILO DO PRELOADER COM ÍCONE --- */
+#preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #2c3e50;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    transition: opacity 0.75s ease, visibility 0.75s ease;
+}
+
+#preloader.hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.icone-animado {
+    width: 100px;
+    animation: pulse 1.5s infinite ease-in-out;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.1); opacity: 0.7; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+/* --- ESTILOS GERAIS E FONTES --- */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+:root {
+    --cor-primaria: #87CEEB;
+    --cor-fundo: #2c3e50;
+    --cor-texto: #ffffff;
+    --cor-fundo-secao: #34495e;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    text-decoration: none;
+    outline: none;
+    border: none;
+}
+
+html {
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+}
+
+body {
+    background-color: var(--cor-fundo);
+    color: var(--cor-texto);
+}
+
+section {
+    padding: 80px 7%;
+}
+
+h2 {
+    text-align: center;
+    font-size: 2.5em;
+    color: var(--cor-primaria);
+    margin-bottom: 50px;
+    text-transform: uppercase;
+}
+
+/* --- CABEÇALHO E NAVEGAÇÃO --- */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 0 7%;
+    height: 105px;
+    background: rgba(44, 62, 80, 0.7);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid rgba(135, 206, 235, 0.2);
+    transition: background-color 0.4s ease; /* Transição suave para a mudança de cor */
+}
+
+/* Classe adicionada via JS na rolagem */
+header.scrolled {
+    background: rgba(44, 62, 80, 0.9);
+}
+
+header .logo {
+    position: absolute;
+    left: 7%;
+    top: 5px;
+    z-index: 1001;
+}
+
+header .logo img {
+    height: 150px;
+    width: auto;
+}
+
+header .navbar {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+
+header .navbar .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+header .navbar .nav-links a {
+    font-size: 1.1em;
+    color: var(--cor-texto);
+    transition: color 0.3s ease;
+}
+
+header .navbar .nav-links a:hover,
+header .navbar .nav-links a.active {
+    color: var(--cor-primaria);
+}
+
+header .navbar a.active {
+    font-weight: 600;
+}
+
+header .social-icons {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+header .social-icons a svg {
+    height: 22px;
+    width: auto;
+    fill: var(--cor-texto);
+    transition: fill 0.3s ease, transform 0.3s ease;
+}
+
+header .social-icons a:hover svg {
+    fill: var(--cor-primaria);
+    transform: scale(1.1);
+}
+
+/* --- SEÇÃO HOME (INÍCIO - UNIFICADA) --- */
+.home {
+    padding: 0;
+    min-height: 100vh;
+    width: 100%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.carousel-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1; /* Fica atrás do conteúdo */
+}
+
+.carousel-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 1.2s ease-in-out;
+}
+
+.carousel-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.5); /* Escurece a imagem para o texto se destacar */
+}
+
+.carousel-slide.active {
+    opacity: 1;
+}
+
+.home-content {
+    position: relative;
+    z-index: 2; /* Fica na frente do carrossel */
+    text-align: center;
+    color: var(--cor-texto);
+    max-width: 700px;
+    padding: 20px;
+}
+
+.home-content h1 {
+    font-size: 4em;
+    line-height: 1.2;
+}
+
+.home-content h1 span {
+    font-size: 0.4em;
+    font-weight: 300;
+    color: var(--cor-primaria);
+    letter-spacing: 2px;
+    display: block;
+    margin-bottom: -15px;
+}
+
+.home-content p {
+    font-size: 1.2em;
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+
+/* --- BOTÃO PRINCIPAL --- */
+.btn {
+    display: inline-block;
+    padding: 12px 28px;
+    background: var(--cor-primaria);
+    color: var(--cor-fundo);
+    font-size: 1.1em;
+    font-weight: 600;
+    border-radius: 5px;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    cursor: pointer;
+}
+
+.btn:hover {
+    transform: scale(1.05);
+    background-color: #a2dff7;
+}
+
+/* --- FUNDOS DAS SEÇÕES --- */
+#servicos, #contato, #sobre, #rodape {
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
+}
+
+#servicos {
+    background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('../images/fundo-servicos.jpg.jpg');
+}
+
+#contato {
+    background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('../images/fundo-contato.jpg.jpg');
+}
+
+#rodape {
+    background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('../images/rodape.avif');
+}
+
+#sobre {
+    background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('../images/rodape.avif');
+}
+
+#galeria, #sobre {
+    background-color: var(--cor-fundo-secao);
+}
+
+/* --- ESTILOS DOS ITENS DAS SEÇÕES --- */
+/* Serviços */
+.servicos-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.servico-item {
+    background: rgba(44, 62, 80, 0.7);
+    padding: 30px;
+    border-radius: 8px;
+    text-align: center;
+    border: 1px solid var(--cor-primaria);
+    transition: transform 0.3s ease;
+    backdrop-filter: blur(4px);
+}
+
+.servico-item:hover {
+    transform: translateY(-10px);
+}
+
+.servico-item h3 {
+    font-size: 1.5em;
+    color: var(--cor-primaria);
+    margin-bottom: 15px;
+}
+
+.servico-icone {
+    height: 50px;
+    width: auto;
+    margin-bottom: 20px;
+}
+
+/* Galeria */
+.galeria-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+}
+
+.galeria-container img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 5px;
+    border: 2px solid var(--cor-primaria);
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.galeria-container img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+}
+
+/* Sobre */
+#sobre {
+    padding: 0;
+}
+
+.sobre-layout {
+    display: flex;
+    align-items: stretch;
+    min-height: 80vh;
+}
+
+.sobre-texto, .sobre-imagem {
+    flex: 1;
+}
+
+.sobre-texto {
+    padding: 5%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.sobre-imagem {
+    flex: 1;
+    padding: 20px; /* Adiciona um respiro para a imagem */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.sobre-imagem img {
+    width: 100%;
+    max-width: 450px; /* Define um tamanho máximo para a imagem não ficar gigante */
+    height: auto;     /* Mantém a proporção da imagem */
+    object-fit: cover; /* Garante que a imagem preencha o espaço sem distorcer */
+    border-radius: 8px; /* Cantos arredondados para um visual suave */
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4); /* Adiciona profundidade */
+}
+
+/* Garanta que seu CSS para telas pequenas esteja assim.
+   Isso fará com que a imagem fique em cima (ou embaixo) do texto. */
+@media (max-width: 768px) {
+    .sobre-layout {
+        flex-direction: column;
+    }
+    .sobre-texto, .sobre-imagem {
+        padding: 5%
+    }
+}
+
+/* Contato */
+.contato-container {
+    text-align: center;
+}
+.contato-botoes {
+    margin: 30px 0;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.mapa-container {
+    margin-top: 50px;
+    border: 2px solid var(--cor-primaria);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.mapa-container iframe {
+    width: 100%;
+    display: block;
+}
+
+/* --- RODAPÉ --- */
+footer {
+    text-align: center;
+    padding: 30px 7%;
+    background-color: #1f2b38;
+    border-top: 1px solid var(--cor-primaria);
+}
+
+footer p {
+    margin-bottom: 5px;
+}
+
+/* --- MODAL DA GALERIA --- */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 2000;
+    padding-top: 100px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.9);
+}
+
+.modal-conteudo {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+    animation-name: zoom;
+    animation-duration: 0.6s;
+}
+
+@keyframes zoom {
+    from {transform:scale(0)} 
+    to {transform:scale(1)}
+}
+
+.fechar-modal {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.fechar-modal:hover,
+.fechar-modal:focus {
+    color: #bbb;
+    text-decoration: none;
+}
+
+/* --- ÍCONE FLUTUANTE DO WHATSAPP --- */
+.whatsapp-flutuante {
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    bottom: 40px;
+    right: 40px;
+    background-color: #25D366;
+    border-radius: 50px;
+    box-shadow: 2px 2px 8px rgba(0,0,0,0.4);
+    z-index: 1500;
+    transition: transform 0.3s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.whatsapp-flutuante:hover {
+    transform: scale(1.1);
+}
+
+.whatsapp-flutuante img {
+    width: 35px;
+    height: auto;
+}
+
+/* --- NOVA SEÇÃO DE VÍDEO --- */
+#video-drudi {
+    background-color: var(--cor-fundo); /* Ou use var(--cor-fundo-secao) se preferir */
+    text-align: center;
+}
+
+.secao-subtitulo {
+    font-size: 1.2em;
+    color: var(--cor-texto);
+    margin-top: -30px;
+    margin-bottom: 50px;
+    font-weight: 300;
+}
+
+.video-container {
+    position: relative;
+    width: 100%;
+    max-width: 900px; /* Define uma largura máxima para o vídeo */
+    margin: 0 auto; /* Centraliza o container na página */
+    padding-bottom: 56.25%; /* Proporção de 16:9 (9 / 16 = 0.5625) */
+    height: 0;
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    border: 2px solid var(--cor-primaria);
+}
+
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* --- RESPONSIVIDADE --- */
+@media (max-width: 992px) {
+    header .logo img {
+        height: 120px;
+    }
+}
+
+@media (max-width: 768px) {
+    section {
+        padding: 60px 5%;
+    }
+
+    h2 {
+        font-size: 2.2em;
+    }
+    
+    header {
+        justify-content: center; /* Centraliza a navbar quando o logo sobrepõe */
+    }
+
+    header .logo {
+        left: 5%;
+        top: 0;
+    }
+
+    header .logo img {
+        height: 100px;
+    }
+    
+    header .navbar .nav-links {
+        gap: 15px;
+    }
+
+    header .navbar .nav-links a {
+        font-size: 1em;
+    }
+
+    .home-content h1 {
+        font-size: 2.8em; 
+    }
+    
+    .sobre-layout {
+        flex-direction: column;
+    }
+
+    .sobre-imagem {
+        height: 40vh;
+        min-height: 300px;
+    }
+    
+    /* Desativa o parallax em telas menores para melhor performance */
+    #servicos, #contato, #rodape, #sobre {
+        background-attachment: scroll;
+    }
+}
+
+@media (max-width: 576px) {
+    header {
+        padding: 15px;
+        height: auto;
+        flex-direction: column;
+        justify-content: center;
+        gap: 15px;
+    }
+
+    header .logo {
+        position: static; /* Logo volta ao fluxo normal */
+        transform: none;
+    }
+    
+    header .logo img {
+        height: 80px;
+    }
+
+    header .navbar {
+        gap: 20px;
+        width: 100%;
+        justify-content: center;
+    }
+
+    .home-content h1 {
+        font-size: 2.4em;
+    }
+    
+    h2 {
+        font-size: 2em;
+    }
+
+    .btn {
+        padding: 10px 20px;
+        font-size: 1em;
+    }
+
+    .servicos-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .whatsapp-flutuante {
+        width: 50px;
+        height: 50px;
+        bottom: 20px;
+        right: 20px;
+    }
+    .whatsapp-flutuante img {
+        width: 28px;
+    }
+}
