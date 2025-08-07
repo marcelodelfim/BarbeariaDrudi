@@ -86,10 +86,9 @@ header {
     background: rgba(44, 62, 80, 0.7);
     backdrop-filter: blur(8px);
     border-bottom: 1px solid rgba(135, 206, 235, 0.2);
-    transition: background-color 0.4s ease; /* Transição suave para a mudança de cor */
+    transition: background-color 0.4s ease;
 }
 
-/* Classe adicionada via JS na rolagem */
 header.scrolled {
     background: rgba(44, 62, 80, 0.9);
 }
@@ -169,7 +168,7 @@ header .social-icons a:hover svg {
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: 1; /* Fica atrás do conteúdo */
+    z-index: 1;
 }
 
 .carousel-slide {
@@ -186,7 +185,7 @@ header .social-icons a:hover svg {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    filter: brightness(0.5); /* Escurece a imagem para o texto se destacar */
+    filter: brightness(0.5);
 }
 
 .carousel-slide.active {
@@ -195,7 +194,7 @@ header .social-icons a:hover svg {
 
 .home-content {
     position: relative;
-    z-index: 2; /* Fica na frente do carrossel */
+    z-index: 2;
     text-align: center;
     color: var(--cor-texto);
     max-width: 700px;
@@ -296,7 +295,7 @@ header .social-icons a:hover svg {
 }
 
 .servico-icone {
-    height: 100px;
+    height: 50px;
     width: auto;
     margin-bottom: 20px;
 }
@@ -347,7 +346,7 @@ header .social-icons a:hover svg {
 
 .sobre-imagem {
     flex: 1;
-    padding: 20px; /* Adiciona um respiro para a imagem */
+    padding: 20px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -355,22 +354,11 @@ header .social-icons a:hover svg {
 
 .sobre-imagem img {
     width: 100%;
-    max-width: 450px; /* Define um tamanho máximo para a imagem não ficar gigante */
-    height: auto;     /* Mantém a proporção da imagem */
-    object-fit: cover; /* Garante que a imagem preencha o espaço sem distorcer */
-    border-radius: 8px; /* Cantos arredondados para um visual suave */
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4); /* Adiciona profundidade */
-}
-
-/* Garanta que seu CSS para telas pequenas esteja assim.
-   Isso fará com que a imagem fique em cima (ou embaixo) do texto. */
-@media (max-width: 768px) {
-    .sobre-layout {
-        flex-direction: column;
-    }
-    .sobre-texto, .sobre-imagem {
-        padding: 5%
-    }
+    max-width: 450px;
+    height: auto;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
 }
 
 /* Contato */
@@ -423,6 +411,36 @@ footer p {
     background-color: rgba(0,0,0,0.9);
 }
 
+/* --- FILTRO DA GALERIA --- */
+.filtro-galeria {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.btn-filtro {
+    background: none;
+    border: 1px solid var(--cor-primaria);
+    color: var(--cor-primaria);
+    padding: 8px 20px;
+    margin: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: 500;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.btn-filtro:hover {
+    background-color: var(--cor-primaria);
+    color: var(--cor-fundo);
+}
+
+/* Estilo para o botão que está ativo */
+.btn-filtro.active {
+    background-color: var(--cor-primaria);
+    color: var(--cor-fundo);
+}
+
 .modal-conteudo {
     margin: auto;
     display: block;
@@ -459,10 +477,10 @@ footer p {
     position: fixed;
     width: 60px;
     height: 60px;
-    bottom: 140px;
+    bottom: 40px;
     right: 40px;
-    background-color: #25d36500;
-    border-radius: 10px;
+    background-color: #25D366;
+    border-radius: 50px;
     box-shadow: 2px 2px 8px rgba(0,0,0,0.4);
     z-index: 1500;
     transition: transform 0.3s ease;
@@ -476,13 +494,13 @@ footer p {
 }
 
 .whatsapp-flutuante img {
-    width: 100px;
+    width: 35px;
     height: auto;
 }
 
 /* --- NOVA SEÇÃO DE VÍDEO --- */
 #video-drudi {
-    background-color: var(--cor-fundo); /* Ou use var(--cor-fundo-secao) se preferir */
+    background-color: var(--cor-fundo);
     text-align: center;
 }
 
@@ -497,9 +515,9 @@ footer p {
 .video-container {
     position: relative;
     width: 100%;
-    max-width: 900px; /* Define uma largura máxima para o vídeo */
-    margin: 0 auto; /* Centraliza o container na página */
-    padding-bottom: 56.25%; /* Proporção de 16:9 (9 / 16 = 0.5625) */
+    max-width: 900px;
+    margin: 0 auto;
+    padding-bottom: 56.25%;
     height: 0;
     overflow: hidden;
     border-radius: 8px;
@@ -514,6 +532,45 @@ footer p {
     width: 100%;
     height: 100%;
 }
+
+/* --- BOTÃO VOLTAR AO TOPO --- */
+.back-to-top-btn {
+    position: fixed;
+    bottom: 115px;
+    right: 40px;
+    z-index: 1000;
+    width: 40px;
+    height: 40px;
+    background-color: var(--cor-primaria);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.25);
+    cursor: pointer;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+    transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease, background-color 0.2s ease;
+}
+
+.back-to-top-btn.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.back-to-top-btn:hover {
+    background-color: #a2dff7;
+    transform: scale(1.05);
+}
+
+.back-to-top-btn svg {
+    width: 20px;
+    height: 20px;
+    stroke: var(--cor-fundo);
+}
+
 
 /* --- RESPONSIVIDADE --- */
 @media (max-width: 992px) {
@@ -532,7 +589,7 @@ footer p {
     }
     
     header {
-        justify-content: center; /* Centraliza a navbar quando o logo sobrepõe */
+        justify-content: center;
     }
 
     header .logo {
@@ -565,7 +622,6 @@ footer p {
         min-height: 300px;
     }
     
-    /* Desativa o parallax em telas menores para melhor performance */
     #servicos, #contato, #rodape, #sobre {
         background-attachment: scroll;
     }
@@ -581,7 +637,7 @@ footer p {
     }
 
     header .logo {
-        position: static; /* Logo volta ao fluxo normal */
+        position: static;
         transform: none;
     }
     
@@ -620,5 +676,13 @@ footer p {
     }
     .whatsapp-flutuante img {
         width: 28px;
+    }
+
+    /* Regra específica para o botão Voltar ao Topo em telas pequenas */
+    .back-to-top-btn {
+        bottom: 85px; /* (20px do whats + 50px de altura + 15px de espaço) */
+        right: 20px;  /* Alinhado com o botão do WhatsApp no mobile */
+        width: 42px;
+        height: 42px;
     }
 }

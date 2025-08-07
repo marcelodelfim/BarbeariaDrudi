@@ -66,7 +66,7 @@
                     <span>Barbearia</span>
                     Drudi
                 </h1>
-                <p>Onde cada corte de cabelo e barba é uma obra de arte. Oferecemos um atendimento exclusivo para o homem moderno.</p>
+                <p>Seu Estilo, Nossa <span id="typed-output"></span></p>
                 <a href="#servicos" class="btn">Conhecer Serviços</a>
             </div>
         </section>
@@ -99,20 +99,21 @@
         
         <section id="galeria">
             <h2>Galeria</h2>
-            <div class="galeria-container">
-                <img src="barbearia-drudi/images/foto1.png" alt="Corte de cabelo masculino estilo fade">
-                <img src="barbearia-drudi/images/foto2.png" alt="Homem com barba e cabelo estilizados na barbearia">
-                <img src="barbearia-drudi/images/foto3.png" alt="Detalhe do ambiente da barbearia com decoração vintage">
-                <img src="barbearia-drudi/images/foto4.png" alt="Cliente satisfeito sorrindo após o serviço">
-                <img src="barbearia-drudi/images/foto4.png" alt="Cliente satisfeito sorrindo após o serviço">
-                <img src="barbearia-drudi/images/foto4.png" alt="Cliente satisfeito sorrindo após o serviço">
-                <img src="barbearia-drudi/images/foto4.png" alt="Cliente satisfeito sorrindo após o serviço">
-                <img src="barbearia-drudi/images/foto4.png" alt="Cliente satisfeito sorrindo após o serviço">
-                <img src="barbearia-drudi/images/foto4.png" alt="Cliente satisfeito sorrindo após o serviço"> 
-                <img src="barbearia-drudi/images/foto4.png" alt="Cliente satisfeito sorrindo após o serviço">
-                <img src="barbearia-drudi/images/foto4.png" alt="Cliente satisfeito sorrindo após o serviço">
-                <img src="barbearia-drudi/images/foto4.png" alt="Cliente satisfeito sorrindo após o serviço">               
+
+            <div class="filtro-galeria">
+                <button class="btn-filtro active" data-filter="*">Todos</button>
+                <button class="btn-filtro" data-filter=".corte">Cortes de Cabelo</button>
+                <button class="btn-filtro" data-filter=".barba">Barbas</button>
+                <button class="btn-filtro" data-filter=".ambiente">Ambiente</button>
             </div>
+
+            <div class="galeria-container">
+                <img src="barbearia-drudi/images/foto1.png" alt="Corte de cabelo masculino estilo fade" class="item-galeria corte">
+                <img src="barbearia-drudi/images/foto2.png" alt="Homem com barba e cabelo estilizados" class="item-galeria corte barba">
+                <img src="barbearia-drudi/images/foto3.png" alt="Detalhe do ambiente da barbearia" class="item-galeria ambiente">
+                <img src="barbearia-drudi/images/foto4.png" alt="Cliente satisfeito após o serviço" class="item-galeria corte">
+                
+                </div>
         </section>
 
         <div id="modal-galeria" class="modal">
@@ -141,7 +142,7 @@
             <h2>Uma Experiência Drudi</h2>
             <p class="secao-subtitulo">Sinta a atmosfera da nossa barbearia em movimento.</p>
             <div class="video-container">
-                <iframe width="560" height="315" src="https://youtu.be/bjHCKmBdyNY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/jgbLjq4nP_I" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
             </div>
         </section>
 
@@ -170,7 +171,21 @@
     <a href="https://wa.me/5519998271747?text=Olá!%20Gostaria%20de%20agendar%20um%20horário." class="whatsapp-flutuante" target="_blank">
         <img src="barbearia-drudi/images/whatsapp-icon.svg" alt="Fale Conosco pelo WhatsApp">
     </a>
+
+    <a href="#home" class="back-to-top-btn" title="Voltar ao Topo">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 15.75l7.5-7.5 7.5 7.5" />
+        </svg>
+    </a>
     
+    <script src="https://unpkg.com/scrollreveal"></script>
+
+    <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
+
+    <script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js"></script>
+
+    <script src="https://unpkg.com/imagesloaded@5/imagesloaded.pkgd.min.js"></script>
+
     <script src="barbearia-drudi/js/script.js"></script>
 </body>
 </html>
