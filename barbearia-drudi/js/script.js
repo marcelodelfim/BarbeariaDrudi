@@ -119,22 +119,22 @@ document.addEventListener('DOMContentLoaded', function() {
     const sr = ScrollReveal({
         origin: 'top',
         distance: '50px',
-        duration: 2000,
+        duration: 3000,
         reset: true
     });
 
     // Agora, vamos aplicar a animação aos elementos que queremos
     sr.reveal('.home-content', { delay: 200 });
     sr.reveal('h2', { origin: 'left', distance: '80px', delay: 300 });
-    sr.reveal('.secao-subtitulo', { origin: 'bottom', delay: 400 });
+    sr.reveal('.secao-subtitulo', { origin: 'bottom', delay: 300 });
     sr.reveal('.servico-item', { interval: 200 });
-    sr.reveal('.galeria-container img', { origin: 'bottom', interval: 150 });
+    sr.reveal('.galeria-container img', { origin: 'bottom', interval: 300 });
     sr.reveal('.sobre-texto', { origin: 'left' });
     sr.reveal('.sobre-imagem', { origin: 'right', delay: 200 });
     sr.reveal('.video-container', { origin: 'bottom' });
     sr.reveal('.contato-container p', {});
     sr.reveal('.contato-botoes .btn', { interval: 200 });
-    sr.reveal('.mapa-container', { origin: 'bottom', delay: 400 });
+    sr.reveal('.horario-atendimento', { interval: 200 });
 
     const options = {
         strings: ['Paixão.', 'Tradição.', 'Precisão.', 'Arte.'],
