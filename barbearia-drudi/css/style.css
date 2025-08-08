@@ -57,6 +57,7 @@ html {
 body {
     background-color: var(--cor-fundo);
     color: var(--cor-texto);
+    overflow-x: hidden;
 }
 
 section {
@@ -202,8 +203,8 @@ header .social-icons a:hover svg {
 }
 
 .home-content h1 {
-    font-size: 4em;
-    line-height: 1.2;
+    font-size: 5em;
+    line-height: 1.5;
 }
 
 .home-content h1 span {
@@ -620,6 +621,64 @@ footer p {
     stroke: var(--cor-fundo);
 }
 
+/* --- MENU HAMBÚRGUER --- */
+.menu-hamburger {
+    display: none; /* Escondido por padrão em telas grandes */
+    cursor: pointer;
+    z-index: 1500; /* Para ficar na frente de outros elementos */
+}
+
+.menu-hamburger svg {
+    width: 32px;
+    height: 32px;
+    stroke: var(--cor-primaria);
+}
+
+/* --- ESTILOS GERAIS PARA O MENU DENTRO DA MEDIA QUERY --- */
+@media (max-width: 992px) { /* Ponto em que o menu sanduíche aparece */
+    
+    .menu-hamburger {
+        display: block; /* Mostra o botão em telas menores */
+    }
+
+    header .navbar {
+        position: fixed;
+        top: 0;
+        right: -100%; /* Começa escondido fora da tela */
+        width: 60%;
+        height: 100vh;
+        padding: 100px 20px 20px 20px;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 40px;
+        
+        background-color: var(--cor-fundo);
+        border-left: 2px solid var(--cor-primaria);
+        transition: right 0.4s ease-in-out;
+    }
+
+    /* CLASSE 'ACTIVE' QUE O JAVASCRIPT VAI ADICIONAR */
+    header .navbar.active {
+        right: 0; /* Puxa o menu para dentro da tela */
+    }
+
+    header .navbar .nav-links {
+        flex-direction: column;
+        gap: 30px;
+        text-align: center;
+    }
+    
+    header .navbar .nav-links a {
+        font-size: 1.5em; /* Aumenta o tamanho da fonte no menu mobile */
+    }
+
+    header .navbar .social-icons {
+        margin-top: 20px;
+    }
+}
 
 /* --- RESPONSIVIDADE --- */
 @media (max-width: 992px) {
@@ -701,7 +760,7 @@ footer p {
     }
 
     .home-content h1 {
-        font-size: 2.4em;
+        font-size: 4.4em;
     }
     
     h2 {
@@ -724,14 +783,17 @@ footer p {
         right: 20px;
     }
     .whatsapp-flutuante img {
-        width: 28px;
+        width: 50px;
     }
 
     /* Regra específica para o botão Voltar ao Topo em telas pequenas */
     .back-to-top-btn {
-        bottom: 85px; /* (20px do whats + 50px de altura + 15px de espaço) */
+        bottom: 90px; /* (20px do whats + 50px de altura + 15px de espaço) */
         right: 20px;  /* Alinhado com o botão do WhatsApp no mobile */
         width: 42px;
         height: 42px;
+        display: flex; 
+        justify-content: center; 
+        align-items: center; 
     }
 }

@@ -2,7 +2,6 @@
 document.addEventListener('DOMContentLoaded', function() {
     
     // --- LÓGICA DO PRELOADER COM TEMPO MÍNIMO ---
-    // (Esta parte está correta, mas a coloquei aqui para referência)
     const TEMPO_MINIMO_LOADER = 2000;
     const tempoInicial = new Date().getTime();
 
@@ -29,8 +28,8 @@ document.addEventListener('DOMContentLoaded', function() {
     // --- LÓGICA DO RESTANTE DO SITE ---
 
     // 1. Efeito de rolagem suave para os links do menu
-    const navLinks = document.querySelectorAll('header .navbar a[href^="#"]');
-    navLinks.forEach(anchor => {
+    const navLinksSmooth = document.querySelectorAll('header .navbar a[href^="#"]');
+    navLinksSmooth.forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
             const targetElement = document.querySelector(this.getAttribute('href'));
@@ -114,21 +113,19 @@ document.addEventListener('DOMContentLoaded', function() {
         setInterval(showNextSlide, slideInterval);
     }
 
-    // 7. INICIALIZAÇÃO DO SCROLL REVEAL (ANIMAÇÕES DE ROLAGEM)
-    // O código foi movido para aqui, no nível correto.
+    // 7. INICIALIZAÇÃO DO SCROLL REVEAL
     const sr = ScrollReveal({
         origin: 'top',
         distance: '50px',
-        duration: 3000,
+        duration: 2000,
         reset: true
     });
 
-    // Agora, vamos aplicar a animação aos elementos que queremos
     sr.reveal('.home-content', { delay: 200 });
     sr.reveal('h2', { origin: 'left', distance: '80px', delay: 300 });
-    sr.reveal('.secao-subtitulo', { origin: 'bottom', delay: 300 });
+    sr.reveal('.secao-subtitulo', { origin: 'bottom', delay: 400 });
     sr.reveal('.servico-item', { interval: 200 });
-    sr.reveal('.galeria-container img', { origin: 'bottom', interval: 300 });
+    sr.reveal('.galeria-container img', { origin: 'bottom', interval: 150 });
     sr.reveal('.sobre-texto', { origin: 'left' });
     sr.reveal('.sobre-imagem', { origin: 'right', delay: 200 });
     sr.reveal('.video-container', { origin: 'bottom' });
@@ -136,23 +133,24 @@ document.addEventListener('DOMContentLoaded', function() {
     sr.reveal('.contato-botoes .btn', { interval: 200 });
     sr.reveal('.horario-atendimento', { interval: 200 });
 
+    // 8. INICIALIZAÇÃO DO TYPED.JS
     const options = {
         strings: ['Paixão.', 'Tradição.', 'Precisão.', 'Arte.'],
-        typeSpeed: 70,   // Velocidade de digitação em milissegundos
-        backSpeed: 50,   // Velocidade para apagar
-        backDelay: 2000, // Tempo de espera depois de digitar antes de começar a apagar
-        loop: true       // Repetir o loop de palavras
+        typeSpeed: 70,
+        backSpeed: 50,
+        backDelay: 2000,
+        loop: true
     };
 
-    const typed = new Typed('#typed-output', options);
+    if (document.getElementById('typed-output')) {
+        const typed = new Typed('#typed-output', options);
+    }
 
     // 9. LÓGICA DO BOTÃO "VOLTAR AO TOPO"
     const backToTopButton = document.querySelector('.back-to-top-btn');
 
     if (backToTopButton) {
-        // Mostra ou esconde o botão baseado na posição da rolagem
         window.addEventListener('scroll', () => {
-            // Se o usuário rolou mais de 300 pixels para baixo
             if (window.scrollY > 300) {
                 backToTopButton.classList.add('active');
             } else {
@@ -160,9 +158,8 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
 
-        // Rola suavemente para o topo quando o botão é clicado
         backToTopButton.addEventListener('click', (e) => {
-            e.preventDefault(); // Impede o comportamento padrão de "pulo" do link
+            e.preventDefault();
             window.scrollTo({
                 top: 0,
                 behavior: 'smooth'
@@ -174,27 +171,45 @@ document.addEventListener('DOMContentLoaded', function() {
     const galeriaContainer = document.querySelector('.galeria-container');
     
     if (galeriaContainer) {
-        // Inicializa o Isotope depois que todas as imagens carregarem
         imagesLoaded(galeriaContainer, function() {
             const iso = new Isotope(galeriaContainer, {
                 itemSelector: '.item-galeria',
                 layoutMode: 'fitRows'
             });
 
-            // Lógica para os botões de filtro
             const filtroBotoes = document.querySelector('.filtro-galeria');
-            filtroBotoes.addEventListener('click', function(event) {
-                if (!event.target.matches('button')) {
-                    return;
-                }
+            
+            // ADICIONAMOS ESTA VERIFICAÇÃO DE SEGURANÇA
+            if (filtroBotoes) {
+                filtroBotoes.addEventListener('click', function(event) {
+                    if (!event.target.matches('button')) {
+                        return;
+                    }
 
-                const filterValue = event.target.getAttribute('data-filter');
-                iso.arrange({ filter: filterValue });
+                    const filterValue = event.target.getAttribute('data-filter');
+                    iso.arrange({ filter: filterValue });
 
-                // Lógica para a classe 'active' nos botões
-                const botoes = filtroBotoes.querySelectorAll('button');
-                botoes.forEach(btn => btn.classList.remove('active'));
-                event.target.classList.add('active');
+                    const botoes = filtroBotoes.querySelectorAll('button');
+                    botoes.forEach(btn => btn.classList.remove('active'));
+                    event.target.classList.add('active');
+                });
+            }
+        });
+    }
+
+    // 11. LÓGICA DO MENU HAMBÚRGUER
+    const hamburger = document.getElementById('menu-hamburger');
+    const navMenu = document.getElementById('nav-menu');
+    const navMenuLinks = document.querySelectorAll('.nav-item');
+
+    if (hamburger && navMenu) {
+        hamburger.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+
+        navMenuLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
             });
         });
     }
