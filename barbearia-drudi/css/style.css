@@ -231,7 +231,6 @@ header .social-icons a:hover svg {
     padding: 12px 28px;
     background: var(--cor-primaria);
     color: var(--cor-fundo);
-    color: var(--cor-fundo);
     font-size: 1.1em;
     font-weight: 600;
     border-radius: 5px;
@@ -239,7 +238,15 @@ header .social-icons a:hover svg {
     cursor: pointer;
 }
 
-.btn:hover {
+/* --- MENU HAMBÚRGUER --- */
+.menu-hamburger {
+    display: none; /* Escondido por padrão em telas grandes */
+    cursor: pointer;
+    z-index: 1500; /* Para ficar na frente de outros elementos */
+}
+
+.btn:hover,
+.btn:focus {
     transform: scale(1.05);
     background-color: #a2dff7;
 }
@@ -252,11 +259,11 @@ header .social-icons a:hover svg {
 }
 
 #servicos {
-    background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('../images/fundo-servicos.jpg.jpg');
+    background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('../images/fundo-servicos.jpg');
 }
 
 #contato {
-    background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('../images/fundo-contato.jpg.jpg');
+    background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('../images/fundo-contato.jpg');
 }
 
 #rodape {
@@ -272,6 +279,7 @@ header .social-icons a:hover svg {
 }
 
 /* --- ESTILOS DOS ITENS DAS SEÇÕES --- */
+
 /* Serviços */
 .servicos-container {
     display: grid;
@@ -323,7 +331,7 @@ header .social-icons a:hover svg {
 }
 
 .galeria-container img:hover {
-    transform: scale(2.05);
+    transform: scale(1.05);
     box-shadow: 0 8px 16px rgba(0,0,0,0.3);
 }
 
@@ -393,7 +401,7 @@ header .social-icons a:hover svg {
 /* --- ESTILO DO HORÁRIO DE ATENDIMENTO --- */
 .horario-atendimento {
     max-width: 450px;
-    margin: 40px auto; /* Centraliza o bloco e dá espaço em cima/baixo */
+    margin: 40px auto; 
     padding: 25px;
     background: rgba(0, 0, 0, 0.2);
     border: 1px solid rgba(135, 206, 235, 0.4);
@@ -423,7 +431,6 @@ header .social-icons a:hover svg {
     border-bottom: 1px solid rgba(135, 206, 235, 0.2);
 }
 
-/* Remove a borda do último item da lista */
 .horario-atendimento li:last-child {
     border-bottom: none;
 }
@@ -440,7 +447,7 @@ footer p {
     margin-bottom: 5px;
 }
 
-/* --- AJUSTE NO RODAPÉ --- */
+/* --- HORARIO DO RODAPÉ --- */
 .horario-rodape {
     margin-top: 10px;
     font-size: 0.9em;
@@ -485,7 +492,7 @@ footer p {
     color: var(--cor-fundo);
 }
 
-/* Estilo para o botão que está ativo */
+/* --- ESTILO PARA O BOTÃO QUE ESTÁ ATIVO --- */
 .btn-filtro.active {
     background-color: var(--cor-primaria);
     color: var(--cor-fundo);
@@ -548,7 +555,7 @@ footer p {
     height: auto;
 }
 
-/* --- NOVA SEÇÃO DE VÍDEO --- */
+/* --- SEÇÃO DE VÍDEO --- */
 #video-drudi {
     background-color: var(--cor-fundo);
     text-align: center;
@@ -621,13 +628,6 @@ footer p {
     stroke: var(--cor-fundo);
 }
 
-/* --- MENU HAMBÚRGUER --- */
-.menu-hamburger {
-    display: none; /* Escondido por padrão em telas grandes */
-    cursor: pointer;
-    z-index: 1500; /* Para ficar na frente de outros elementos */
-}
-
 .menu-hamburger svg {
     width: 32px;
     height: 32px;
@@ -635,16 +635,16 @@ footer p {
 }
 
 /* --- ESTILOS GERAIS PARA O MENU DENTRO DA MEDIA QUERY --- */
-@media (max-width: 992px) { /* Ponto em que o menu sanduíche aparece */
+@media (max-width: 992px) { 
     
     .menu-hamburger {
-        display: block; /* Mostra o botão em telas menores */
+        display: block; 
     }
 
     header .navbar {
         position: fixed;
         top: 0;
-        right: -100%; /* Começa escondido fora da tela */
+        right: -100%; 
         width: 60%;
         height: 100vh;
         padding: 100px 20px 20px 20px;
@@ -662,7 +662,7 @@ footer p {
 
     /* CLASSE 'ACTIVE' QUE O JAVASCRIPT VAI ADICIONAR */
     header .navbar.active {
-        right: 0; /* Puxa o menu para dentro da tela */
+        right: 0; 
     }
 
     header .navbar .nav-links {
@@ -672,16 +672,13 @@ footer p {
     }
     
     header .navbar .nav-links a {
-        font-size: 1.5em; /* Aumenta o tamanho da fonte no menu mobile */
+        font-size: 1.5em; 
     }
 
     header .navbar .social-icons {
         margin-top: 20px;
     }
-}
 
-/* --- RESPONSIVIDADE --- */
-@media (max-width: 992px) {
     header .logo img {
         height: 120px;
     }
@@ -786,10 +783,10 @@ footer p {
         width: 50px;
     }
 
-    /* Regra específica para o botão Voltar ao Topo em telas pequenas */
+    /* --- REGRA ESPECÍFICA PARA O BOTÃO VOLTAR AO TOPO EM TELAS PEQUENAS --- */
     .back-to-top-btn {
-        bottom: 90px; /* (20px do whats + 50px de altura + 15px de espaço) */
-        right: 20px;  /* Alinhado com o botão do WhatsApp no mobile */
+        bottom: 90px; 
+        right: 20px;  
         width: 42px;
         height: 42px;
         display: flex; 
