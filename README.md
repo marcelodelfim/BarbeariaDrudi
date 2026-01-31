@@ -1,3 +1,17 @@
-O website foi criado com o objetivo de realizar o projeto de TCC, 
-no qual obteve a oportunidade de realizar um projeto de website basedo em um caso real.
-Esse website contemplo uma barbearia que desejava crescer no meio digital.
+# Barbearia Drudi ✂️
+
+## 📖 Descrição
+Projeto de site institucional para uma barbearia, com foco em apresentação dos serviços e visual moderno.
+
+## 🚀 Funcionalidades
+- Apresentação da barbearia
+- Lista de serviços
+- Layout responsivo
+
+## 🛠 Tecnologias
+- HTML
+- CSS
+- JavaScript
+
+## ▶️ Como executar
+Basta abrir o arquivo `index.html` no navegador.
